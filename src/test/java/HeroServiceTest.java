@@ -16,8 +16,18 @@ public class HeroServiceTest {
                 .build();
         HeroService service = retrofit.create(HeroService.class);
         HeroFeed feed = service.getData("A-Bomb").execute().body();
+
         System.out.println("response: " + feed.response );
-        System.out.println("id = " + feed.results[0].id);
+        System.out.println("id = " + feed.results.get(0).id);
+        System.out.println("Biography = " + feed.results.get(0).biography.fullName);
+        System.out.println("Occupation = " + feed.results.get(0).work.occupation);
+        System.out.println("Image URL = " + feed.results.get(0).image.url);
+
         assertNotNull(feed);
+        assertNotNull(feed.results.get(0).biography.fullName);
+        assertNotNull(feed.results.get(0).work.occupation);
+        assertNotNull(feed.results.get(0).image.url);
     }
+
+
 }

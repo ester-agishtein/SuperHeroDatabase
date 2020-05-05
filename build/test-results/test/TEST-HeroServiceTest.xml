@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="HeroServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-05T01:12:53" hostname="Estys-MacBook-Air.local" time="1.908">
+<testsuite name="HeroServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-05-05T03:32:09" hostname="Estys-MacBook-Air.local" time="1.79">
   <properties/>
-  <testcase name="getData" classname="HeroServiceTest" time="1.908"/>
+  <testcase name="getData" classname="HeroServiceTest" time="1.79"/>
   <system-out><![CDATA[response: success
 id = 1
+Biography = Richard Milhouse Jones
+Occupation = Musician, adventurer, author; formerly talk show host
+Image URL = https://www.superherodb.com/pictures2/portraits/10/100/10060.jpg
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
