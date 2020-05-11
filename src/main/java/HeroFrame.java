@@ -1,5 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+
 public class HeroFrame extends JFrame{
     JPanel introPanel;
     JPanel inputPanel;
@@ -7,16 +11,34 @@ public class HeroFrame extends JFrame{
 
     JLabel instructions;
     JLabel inputLabel;
-    JLabel response;
     JTextField userInput;
 
     JButton search;
+
+    //Data to be accessed by controller
+    public static JLabel name;
+    public static JLabel fullName;
+    public static JLabel alterEgos;
+    public static JLabel firstAppear;
+    public static JLabel job;
+    public static JLabel url;
+
+
     public HeroFrame() {
 
         setSize(1000, 800);
         setTitle("Hero Database");
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout((new BoxLayout(getContentPane(), BoxLayout.Y_AXIS)));
+
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("https://www.superheroapi.com/api.php/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        HeroService service = retrofit.create(HeroService.class);
+
+
 
         introPanel = new JPanel();
         inputPanel = new JPanel();
@@ -41,11 +63,29 @@ public class HeroFrame extends JFrame{
 
         responsePanel.setOpaque(true);
         responsePanel.setBackground(Color.BLUE);
-        response = new JLabel();
+
         search.addActionListener(actionEvent -> {
-            response.setText(userInput.getText());
+
+            HeroController controller = new HeroController(service);
+            String hero = userInput.getText();
+            controller.getData(hero);
+
+            name = new JLabel();
+            fullName = new JLabel();
+            alterEgos = new JLabel();;
+            firstAppear = new JLabel();
+            job = new JLabel();
+            url = new JLabel();
+
+            responsePanel.add(name);
+            responsePanel.add(fullName);
+            responsePanel.add(alterEgos);
+            responsePanel.add(firstAppear);
+            responsePanel.add(job);
+            responsePanel.add(url);
+
         });
-        responsePanel.add(response);
+
         add(introPanel);
         add(inputPanel);
         add(responsePanel);
