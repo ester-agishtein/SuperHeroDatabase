@@ -74,11 +74,11 @@ public class HeroFrame extends JFrame{
         image = new JLabel();
         imgPanel = new JPanel();
 
-
         add(introPanel);
         introPanel.add(responsePanel);
         imgPanel.add(image);
         add(imgPanel);
+
         search.addActionListener(actionEvent -> {
             this.clear();
             Retrofit retrofit = new Retrofit.Builder()
@@ -91,17 +91,13 @@ public class HeroFrame extends JFrame{
             String hero = this.checkName(userInput.getText());
             controller.getData(hero);
 
-            this.addComponents();
-
+            this.addRespComponents();
             imgPanel.add(image);
             add(imgPanel);
-
-
         });
-
     }
 
-    private void addComponents() {
+    private void addRespComponents() {
         responsePanel.add(name);
         responsePanel.add(fullName);
         responsePanel.add(alterEgos);

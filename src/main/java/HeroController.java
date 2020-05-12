@@ -53,6 +53,8 @@ public class HeroController {
                     connection.setRequestProperty(
                             "User-Agent",
                             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.65 Safari/537.31");
+                    //User Agent is an HTTP header. It's telling the network protocol what
+                    //browser and operating system it is so the webserver knows what files to serve.
                     BufferedImage buffImage = ImageIO.read(connection.getInputStream());
 
                     JLabel imgLabel = new JLabel(new ImageIcon(buffImage));
