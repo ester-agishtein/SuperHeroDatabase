@@ -1,7 +1,4 @@
-import com.google.gson.*;
 import com.google.gson.annotations.SerializedName;
-
-import java.lang.reflect.Type;
 import java.util.*;
 public class HeroFeed {
     ArrayList<Results> results;
