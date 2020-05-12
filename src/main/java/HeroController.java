@@ -62,9 +62,9 @@ public class HeroController {
 
                 } catch (Exception e) {
                     System.out.println("Couldn't create a connection to the link, please recheck the link.");
-                    nameLabel.setText("This Hero name is invalid. Please try again.");
+                    nameLabel.setText("This Hero's name is invalid. Please try again.");
                     imgPanel.removeAll();
-                    e.printStackTrace();
+//                    e.printStackTrace();
                 }
             }
 
